@@ -1,16 +1,33 @@
-# React + Vite
+# AI Sprint Health Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**AI Sprint Health Dashboard** is a smart, interactive web application designed to help Agile development teams instantly understand how well their sprints are performing. 
 
-Currently, two official plugins are available:
+Instead of manually analyzing spreadsheets, you just input your sprint data (like completed points, story changes, and bugs), and the application uses local Artificial Intelligence to evaluate your sprint's health and suggest improvements.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 🌟 Key Features in Simple Terms:
+- **Instant Health Score:** It calculates a simple health score and gives your sprint a status (Red, Amber, or Green) based on how well the sprint went.
+- **AI-Powered Retrospective:** It sends your sprint details to a local AI model (Ollama), which acts like an Agile Coach. The AI automatically generates a customized agenda and talking points for your next team retrospective meeting.
+- **Trend Tracking:** It saves your past sprints and uses charts to show if your team is improving over time.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🗺️ How It Works (Architecture Diagram)
 
-## Expanding the ESLint configuration
+```mermaid
+graph TD
+    A[🧑‍💻 User] -->|Enters Sprint Data: Points, Bugs, Blockers| B(💻 React Dashboard UI)
+    B -->|Calculates Math Metrics| C{📊 Sprint Health Score}
+    B -->|Sends Data Prompt| D[🧠 Local AI Model - Ollama]
+    D -->|Analyzes & Generates| E[📝 Recommended Retrospective Agenda]
+    C --> F((📈 Final Dashboard View))
+    E --> F
+    F -->|Saves to Local History| G[📊 Trend Visualization Charts]
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+### 🚀 Built With
+* **React** & **Vite** - For a fast, responsive user interface.
+* **Tailwind CSS** - For beautiful, professional styling.
+* **Recharts** - For interactive historical trend charts.
+* **Ollama (Local LLM)** - For secure, private, AI-generated insights without sending data to the cloud.
